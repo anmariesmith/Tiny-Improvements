@@ -1,22 +1,61 @@
-
+body{
+    background: #12c2e9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 .title-header {
     float: left;
     width: 90%;
+    font-family: 'Sedgwick Ave', cursive;
+    color: white;
+    font-size: 36pt;
 }
 
 .title-icon {
     float: right;
 }
-
 .card {
+    margin-top: 20px;
+    background:  rgba(0, 0, 0, 0);
+    border: none;
+}
+.card-kudos {
     text-align: center;
+    background: rgba(0, 0, 0, .5);
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
 }
 
+.btn {
+    background-color: #2ebde9;
+    border: none;
+    color: white;
+}
+
+.btn:hover{
+    background-color: #c172ed;
+}
 .card-body {
     text-align: center;
 }
 
 .form-area {
   margin: 5px 0;
+}
+
+.form-control{
+    text-align: center;
+}
+
+.kudosNote{
+    font-family: 'Just Another Hand', cursive;
+    font-size : 24pt;
+    letter-spacing: 2px;
+}
+
+.card-body{
+    padding: 0;
 }

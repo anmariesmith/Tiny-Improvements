@@ -16,7 +16,8 @@ module.exports = function (app) {
 
   app.get('/api/kudo', function (req, res) {
     Kudos.find({})
-    .populate('User')
+    .populate('to')
+    .populate('from')
     .then(function (data) {
       res.json(data);
     })
@@ -45,9 +46,9 @@ module.exports = function (app) {
       from: req.body.from
     }
     Kudos.create(newEntry)
-      .then(function (newKudos) {
-        return Kudos.updateOne({_id: newEntry._id},{ $push: { to: newEntry.to, from: newEntry.from} }, { new: true });
-    })
+    //   .then(function (newKudos) {
+    //     return Kudos.updateOne({_id: newEntry._id},{ $push: { to: newEntry.to, from: newEntry.from} }, { new: true });
+    // })
     .then(function(userData) {
       res.json(userData);
     })
