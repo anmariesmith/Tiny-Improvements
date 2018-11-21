@@ -1,0 +1,25 @@
+{
+  "name": "Tiny-Improvements",
+  "version": "1.0.0",
+  "description": "n application that allows users to send compliments or \"Kudos\" to other users that are then displayed on the page for all to see",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anmariesmith/Tiny-Improvements.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anmariesmith/Tiny-Improvements/issues"
+  },
+  "homepage": "https://github.com/anmariesmith/Tiny-Improvements#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.13"
+  }
+}
