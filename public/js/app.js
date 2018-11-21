@@ -14,7 +14,7 @@ const renderKudos = function (kudos) {
       $('#kudos')
         .append(
         `<div class='card card-kudos'>
-            <h5>${kudos[i].title}</h5>
+            <h5 class=kudosTitle>${kudos[i].title}</h5>
             <hr>
           <div class='card-body'>
           <h6>
@@ -50,9 +50,11 @@ const renderKudos = function (kudos) {
   
   const addKudo = function (e) {
     e.preventDefault();
-    $('#messages').empty();
+    $('#errors').empty();
     const to= $('#kudo-from').val();
     const from= $('#kudo-to').val();
+    const message= $('#kudo-body').text();
+    const title =$('#kudo-title').text();
   
     if( to && from){
       const kudo = {
@@ -61,7 +63,7 @@ const renderKudos = function (kudos) {
         from: $('#kudo-from').val(),
         to: $('#kudo-to').val()
       }
-
+     
       $.post('/api/kudo', kudo)
         .then(function (data) {
           $('#kudo-title').val('');
@@ -72,10 +74,11 @@ const renderKudos = function (kudos) {
           $('.modal').modal('hide');
           getKudos();
         }).fail(function (err) {
-          $('#messages').append(`<div class='alert alert-danger'>There was an error with your submission. Please try again.</div>`)
+          $('#errors').append(`<div class='alert alert-danger'>Oops! Something went wrong - please try again!</div>`)
         })
+        
       } else {
-        $('#messages').append(`<div class='alert alert-danger'>Please select both a sender and receiver</div>`)
+        $('#errors').append(`<div class='alert alert-danger'>Uh-oh! Having a sender and receiver is mandatory.</div>`)
       }
   }
   

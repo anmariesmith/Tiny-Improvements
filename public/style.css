@@ -56,6 +56,12 @@ background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+
     letter-spacing: 2px;
 }
 
+.kudosTitle{
+    font-family: 'Sedgwick Ave', cursive;
+    font-size : 24pt;
+    letter-spacing: 2px;
+}
+
 .card-body{
     padding: 0;
 }
