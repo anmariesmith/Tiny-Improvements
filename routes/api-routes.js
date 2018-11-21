@@ -6,7 +6,6 @@ module.exports = function (app) {
 
   app.get('/api/user', function (req, res) {
     User.find({})
-    .populate('Kudos')
     .then(function (data) {
       res.json(data);
     })
@@ -17,12 +16,24 @@ module.exports = function (app) {
 
   app.get('/api/kudo', function (req, res) {
     Kudos.find({})
+    .populate('User')
     .then(function (data) {
       res.json(data);
     })
     .catch(function (err) {
       res.json(err);
     });
+  });
+
+
+  app.post('/api/user', function (req, res) {
+    User.create(req.body)
+      .then(function (data) {
+        res.json(data);
+      })
+      .catch(function (err) {
+        res.json(err);
+      });
   });
 
 
@@ -35,7 +46,7 @@ module.exports = function (app) {
     }
     Kudos.create(newEntry)
       .then(function (newKudos) {
-      return Kudos.updateOne({_id: userId}, { $push: { to: noteData._id } }, { new: true });
+        return Kudos.updateOne({_id: newEntry._id},{ $push: { to: newEntry.to, from: newEntry.from} }, { new: true });
     })
     .then(function(userData) {
       res.json(userData);

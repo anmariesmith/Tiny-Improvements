@@ -1,5 +1,6 @@
 // Render function that takes in: dataList (all data), 
 const render = function (dataList) {
+  console.log(dataList)
 
     // Empty the kudos div
     $('#kudos').empty();
@@ -24,13 +25,14 @@ const render = function (dataList) {
   const getKudos = function () {
     $.get(`/api/kudo/`)
       .then(function (data) {
+        console.log(data)
         render(data)
       });
   }
   
   // Function to retrieve all users and add them to the To and From dropdowns
   const getUsers = function () {
-    $.get(`/api/user/`)
+    $.get(`/api/user`)
       .then(function (data) {
   
         // Loop through the data and add the name to both the sender and receiver dropdown

@@ -18,13 +18,13 @@ var KudosSchema = new Schema({
   to: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Kudos"
+      ref: "User"
     }
   ],
   from: [
       {
           type: Schema.Types.ObjectId,
-          ref: "Kudos"
+          ref: "User"
       }
   ]
 });
